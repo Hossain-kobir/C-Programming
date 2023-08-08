@@ -1,0 +1,1 @@
+replace(a.begin()+x,a.end(),a[j+x],b[j]);
