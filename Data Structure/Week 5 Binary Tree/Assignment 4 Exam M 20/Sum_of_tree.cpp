@@ -66,6 +66,9 @@ void level_order__print(Node* root)
 }
 int main()
 {
-    level_order_input_tree();
+    Node* root = level_order_input_tree();
+    //level_order_input_tree();
+    
+    level_order__print(root);
     return 0;
 }
