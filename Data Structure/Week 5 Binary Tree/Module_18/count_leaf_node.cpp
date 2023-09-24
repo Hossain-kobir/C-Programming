@@ -71,11 +71,13 @@ int count_leaf(Node* root)
 int maximum_heaight(Node* root)
 {
     if(root == NULL) return 0;
+    //int sum = root->val;
+
 
     int l = maximum_heaight(root->left);
     int r = maximum_heaight(root->right);
-
-    return max(l,r)+1;
+    return root->val+l+r;
+    //return max(l,r)+1;
 }
 int main()
 {
