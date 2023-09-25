@@ -57,7 +57,7 @@ void level_order__print(Node* root)
         Node* p=q.front();
         q.pop();
 
-        cout<<p->val<<endl;
+       // cout<<p->val<<endl;
 
         if(p->left)q.push(p->left);
         if(p->right)q.push(p->right);
@@ -72,8 +72,8 @@ int sum_of_tree(Node* root)
 
     int l = sum_of_tree(root->left);
     int r = sum_of_tree(root->right);
-    return root->val+l+r;
-    //return max(l,r)+1;
+    //return root->val+l+r;
+    return max(l,r)+1;
 }
 int main()
 {
