@@ -64,11 +64,22 @@ void level_order__print(Node* root)
     }
 
 }
+int sum_of_tree(Node* root)
+{
+    if(root == NULL) return 0;
+    //int sum = root->val;
+
+
+    int l = maximum_heaight(root->left);
+    int r = maximum_heaight(root->right);
+    return root->val+l+r;
+    //return max(l,r)+1;
+}
 int main()
 {
     Node* root = level_order_input_tree();
     //level_order_input_tree();
-    
+    cout<<sum_of_tree(root)<<endl;
     level_order__print(root);
     return 0;
 }
