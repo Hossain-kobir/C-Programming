@@ -70,8 +70,8 @@ int sum_of_tree(Node* root)
     //int sum = root->val;
 
 
-    int l = maximum_heaight(root->left);
-    int r = maximum_heaight(root->right);
+    int l = sum_of_tree(root->left);
+    int r = sum_of_tree(root->right);
     return root->val+l+r;
     //return max(l,r)+1;
 }
