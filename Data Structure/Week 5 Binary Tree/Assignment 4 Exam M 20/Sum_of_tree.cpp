@@ -11,6 +11,7 @@ class Node{
             this->right=NULL;
         }
 };
+vector<int> v;
 Node* level_order_input_tree()
 {
     int val;
@@ -22,8 +23,10 @@ Node* level_order_input_tree()
     if(root) q.push(root);
     while (!q.empty())
     {
+        
         Node* p =q.front();
         q.pop();
+        v.push_back(p->val);
 
         int l, r;
         cin>> l>>r;
@@ -64,38 +67,24 @@ void level_order__print(Node* root)
     }
 
 }
-int maxLeaf = INT_MIN;
-int minLeaf = INT_MAX;
 
-void findLeafMinMax(Node* root) {
-    if (!root) return;
 
-    if (!root->left && !root->right) {  // Leaf node
-        maxLeaf = max(maxLeaf, root->val);
-        minLeaf = min(minLeaf, root->val);
-    }
+int sum_of_tree(Node* root)
+{
+    if(root == NULL) return 0;
+    //int sum = root->val;
 
-    findLeafMinMax(root->left);
-    findLeafMinMax(root->right);
+
+    int l = sum_of_tree(root->left);
+    int r = sum_of_tree(root->right);
+    return root->val+l+r;
+    return max(l,r)+1;
 }
-// int sum_of_tree(Node* root)
-// {
-//     if(root == NULL) return 0;
-//     //int sum = root->val;
-
-
-//     int l = sum_of_tree(root->left);
-//     int r = sum_of_tree(root->right);
-//     //return root->val+l+r;
-//     return max(l,r)+1;
-// }
 int main()
 {
     Node* root = level_order_input_tree();
-    //level_order_input_tree();
-   // cout<<sum_of_tree(root)<<endl;
+    level_order_input_tree();
+   cout<<sum_of_tree(root)<<endl;
     level_order__print(root);
-    findLeafMinMax(root );
-    cout << maxLeaf << " " << minLeaf << endl;
     return 0;
 }
