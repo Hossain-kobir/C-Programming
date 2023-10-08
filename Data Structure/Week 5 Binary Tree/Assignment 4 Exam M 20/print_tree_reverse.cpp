@@ -62,10 +62,11 @@ void level_order__print(Node* root)
         Node* p=q.front();
         q.pop();
 
-       // cout<<p->val<<endl;
+        cout<<p->val<<" ";
 
-        if(p->right)q.push(p->right);
+       
         if(p->left)q.push(p->left);
+         if(p->right)q.push(p->right);
        
     }
 
