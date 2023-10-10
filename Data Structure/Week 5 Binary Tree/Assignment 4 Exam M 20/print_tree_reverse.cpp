@@ -65,7 +65,7 @@ void level_order__print(Node* root)
         q.pop();
         st.push(p);
 
-        cout<<p->val<<" ";
+       // cout<<p->val<<" ";
 
        
        if(p->right)q.push(p->right);
@@ -82,23 +82,13 @@ void level_order__print(Node* root)
 
 }
 
-// int sum_of_tree(Node* root)
-// {
-//     if(root == NULL) return 0;
-//     //int sum = root->val;
 
-
-//     int l = sum_of_tree(root->left);
-//     int r = sum_of_tree(root->right);
-//     //return root->val+l+r;
-//     return max(l,r)+1;
-// }
 int main()
 {
     Node* root = level_order_input_tree();
     //level_order_input_tree();
    // cout<<sum_of_tree(root)<<endl;
- reverse(v.begin(),v.end());
+    reverse(v.begin(),v.end());
     level_order__print(root);
     
 
