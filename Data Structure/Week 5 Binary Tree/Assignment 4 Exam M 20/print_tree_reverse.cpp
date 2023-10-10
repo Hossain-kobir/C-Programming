@@ -56,13 +56,14 @@ void level_order__print(Node* root)
         cout << "Tree nai" << endl;
         return;
     }
+    stack<Node*>st;
     queue <Node* >q;
     q.push(root);
     while (!q.empty())
     {
         Node* p=q.front();
         q.pop();
-        v.push_back(p->val);
+        st.push(p);
 
         cout<<p->val<<" ";
 
