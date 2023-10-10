@@ -73,6 +73,12 @@ void level_order__print(Node* root)
         
        
     }
+    while (! st.empty())
+    {
+        Node*p=st.top();
+        st.pop();
+        cout<<p->val<<" ";
+    }
 
 }
 
