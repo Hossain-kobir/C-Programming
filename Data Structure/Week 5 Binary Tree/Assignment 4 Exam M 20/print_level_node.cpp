@@ -59,9 +59,9 @@ class Node{
                 q.push({node->left,level+1});
             }
 
-            if(r == -1) left= NULL;
+            if(r == -1) right= NULL;
             else{
-                left= new Node(l);
+                right= new Node(r);
                 node->right=right;
                 q.push({node->right,level+1});
             }
@@ -70,8 +70,8 @@ class Node{
     }
 int main()
 {
+    int x; 
     Node* root= input_tree();
-    int x;
     cin>>x;
     print_level_order(root, x);
     return 0;
