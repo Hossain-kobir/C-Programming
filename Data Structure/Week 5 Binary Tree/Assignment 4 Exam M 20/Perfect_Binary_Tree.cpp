@@ -52,8 +52,34 @@ int count_node(Node * root)
     int r=count_node(root->right);
     return l+r+1;
 }
+
+int max_heaight(Node* root)
+{
+    if(root == NULL) return 0;
+
+    int l= max_heaight(root->left);
+    int r= max_heaight(root->right);
+    return max(l,r)+1;
+}
+
+void check_perfect_binary_tree(Node* root)
+{
+    int count_binary_node = count_node(root);
+    int binary_tree_maximum_heaight = max_heaight(root);
+    int binary_tree_maximum_heaights = pow(2,binary_tree_maximum_heaight)-1;
+    if(count_binary_node == binary_tree_maximum_heaights)
+    {
+        cout<<"YES";
+    }
+    else{
+        cout<<"NO";
+    }
+}
+
 int main()
 {   Node * root = input_tree();
     count_node(root);
+    max_heaight(root);
+    check_perfect_binary_tree(root);
     return 0;
 }
