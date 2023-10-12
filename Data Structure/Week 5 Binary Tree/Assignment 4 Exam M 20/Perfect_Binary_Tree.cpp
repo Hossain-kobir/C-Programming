@@ -36,6 +36,9 @@ Node* input_tree()
         if(r==-1) right=NULL;
         else right = new Node(r);
 
+        p->left=left;
+        p->right=right;
+
         if(p->left) q.push(p->left);
         if(p->right) q.push(p->right);
     }
