@@ -53,7 +53,7 @@ bool search_bst(Node* root,int x)
 
     if(x<root->val)
     {
-        bool l= (root->left,x);
+        bool l= search_bst(root->left,x);
         if(l == true) return true;
         else{
             return false;
@@ -61,7 +61,7 @@ bool search_bst(Node* root,int x)
     }
     else if(x >root->val)
     {
-        bool r =(root->right,x);
+        bool r =search_bst(root->right,x);
         if(r== true) return true;
         else {
             return false;
@@ -85,13 +85,17 @@ void levelorder_print(Node * root)
     }
 
 }
-
+void insert(Node * root, int x)
+{
+    
+}
 int main()
 {   Node * root = input_tree();
     int x;
     cin>>x;
    search_bst(root,x);
   // levelorder_print(root);
-
+if(search_bst(root, 60)) cout<<"Yes, Found";
+else cout<<"Not Found";
     return 0;
 }
