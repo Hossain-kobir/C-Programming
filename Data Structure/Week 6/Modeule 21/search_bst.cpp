@@ -69,12 +69,27 @@ bool search_bst(Node* root,int x)
     }
 }
 
+void levelorder_print(Node * root)
+{
+    queue<Node*>q;
+    q.push(root);
+    while(!q.empty())
+    {
+        Node *f= q.front();
+        q.pop();
+        cout<<f->val<<" ";
 
+        if(f->left) q.push(f->left);
+        if(f->right) q.push(f->right);
+    }
+
+}
 
 int main()
 {   Node * root = input_tree();
     int x;
     cin>>x;
    search_bst(root,x);
+   levelorder_print(root);
     return 0;
 }
