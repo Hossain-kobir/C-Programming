@@ -46,28 +46,29 @@ Node* input_tree()
 }
 
 
-bool search_bst(Node* root,int x)
+bool search_bst(Node* root, int x)
 {
-    if(root == NULL) return false;
-    if(root->val== x) return true;
+    if (root == NULL)
+        return false;
+    if (root->val == x)
+        return true;
 
-    if(x<root->val)
+    if (x < root->val)
     {
-        bool l= (root->left,x);
-        if(l == true) return true;
-        else{
-            return false;
-        }
+        bool l = search_bst(root->left, x);
+        if (l == true)
+            return true;
     }
-    else if(x >root->val)
+    else if (x > root->val)
     {
-        bool r =(root->right);
-        if(r== true) return true;
-        else {
-            return false;
-        }
-    };
+        bool r = search_bst(root->right, x);
+        if (r == true)
+            return true;
+    }
+
+    return false; // Return false if not found in the current subtree
 }
+
 
 void levelorder_print(Node * root)
 {
@@ -91,7 +92,7 @@ int main()
     cin>>x;
    search_bst(root,x);
   // levelorder_print(root);
-if(search_bst(root, 100)) cout<<"Yes, Fournd";
+if(search_bst(root, 60)) cout<<"Yes, Fournd";
 else cout<<"Not Found";
     return 0;
 }
