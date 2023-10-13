@@ -91,7 +91,7 @@ int main()
     cin>>x;
    search_bst(root,x);
   // levelorder_print(root);
-if(search_bst(root, 9)) cout<<"Yes, Fournd";
+if(search_bst(root, 100)) cout<<"Yes, Fournd";
 else cout<<"Not Found";
     return 0;
 }
