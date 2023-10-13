@@ -46,29 +46,29 @@ Node* input_tree()
 }
 
 
-bool search_bst(Node* root,int x)
-{
-    if(root == NULL) return false;
-    if(root->val== x) return true;
+// bool search_bst(Node* root,int x)
+// {
+//     if(root == NULL) return false;
+//     if(root->val== x) return true;
 
-    if(x<root->val)
-    {
-        bool l= search_bst(root->left,x);
-        if(l == true) return true;
-        else{
-            return false;
-        }
-    }
-    else if(x >root->val)
-    {
-        bool r =search_bst(root->right,x);
-        if(r== true) return true;
-        else {
-            return false;
-        }
-    }
+//     if(x<root->val)
+//     {
+//         bool l= search_bst(root->left,x);
+//         if(l == true) return true;
+//         else{
+//             return false;
+//         }
+//     }
+//     else if(x >root->val)
+//     {
+//         bool r =search_bst(root->right,x);
+//         if(r== true) return true;
+//         else {
+//             return false;
+//         }
+//     }
   
-}
+// }
 
 void levelorder_print(Node * root)
 {
@@ -85,17 +85,42 @@ void levelorder_print(Node * root)
     }
 
 }
-void insert(Node * root, int x)
+void insert(Node * &root, int x)
 {
-    
+    if(root==NULL)
+    {
+        root=new Node(x);
+    }
+
+    if(x<root->val)
+    {
+        if(root->left==NULL)
+        {
+            root= new Node(x);
+        }
+
+        else insert(root->left,x);
+    }
+
+        if(x>root->val)
+    {
+        if(root->right==NULL)
+        {
+            root= new Node(x);
+        }
+
+        else insert(root->right,x);
+    }
 }
 int main()
 {   Node * root = input_tree();
     int x;
     cin>>x;
-   search_bst(root,x);
-  // levelorder_print(root);
-if(search_bst(root, 60)) cout<<"Yes, Found";
-else cout<<"Not Found";
+    insert(root, x);
+    levelorder_print(root);
+
+  // search_bst(root,x);
+   // if(search_bst(root, 60)) cout<<"Yes, Found";
+   // else cout<<"Not Found";
     return 0;
 }
