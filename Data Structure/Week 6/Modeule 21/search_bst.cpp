@@ -66,7 +66,7 @@ bool search_bst(Node* root,int x)
         else {
             return true;
         }
-    }
+    };
 }
 
 void levelorder_print(Node * root)
