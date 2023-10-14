@@ -22,6 +22,7 @@ Node * convert(int a[],int n,int l, int r)
     Node* rootright= convert(a,n,mid+1,r);
     root->left=rootleft;
     root->right=root->right;
+    return root;
 }
 int main()
 {
