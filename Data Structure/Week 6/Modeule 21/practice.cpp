@@ -71,5 +71,7 @@ int main()
     cin>>x;
    Node*root= input_tree();
     search_bst(root,x); 
+    if(search_bst(root,x)) cout<<"found";
+    else  cout<<"Not Found";
     return 0;
 }
